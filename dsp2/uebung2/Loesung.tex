@@ -54,16 +54,43 @@
 
 \subsection*{Aufgabe 3}
 Ausgangssignal $y[n]$:\newline
-$y[n]=x[n]*h[n]$\newline
-$y[n]=\sum_{m=0}^{N-1}x[m]h[n-m]$\newline
-$y[n]=x[0]h[n-0]+x[1]h[n-1]+x[2]h[n-2]+x[3]h[n-3]$\newline
+\hspace*{5mm}$y[n]=x[n]*h[n]$\newline
+\hspace*{5mm}$y[n]=\sum_{m=0}^{N-1}x[m]h[n-m]$\newline
+\hspace*{5mm}$y[n]=x[0]h[n-0]+x[1]h[n-1]+x[2]h[n-2]+x[3]h[n-3]$\newline
 \newpage
 z-Transformierte $Y(z)$:\newline
-$Y(z)=X(z)H(z)$\newline
-$Y(z)=(\sum_{n=-\infty}^{\infty}x[n]z^{-n})(\sum_{n=-\infty}^{\infty}h[n]z^{-n})$
+\hspace*{5mm}$Y(z)=X(z)H(z)$\newline
+\hspace*{5mm}$Y(z)=(\sum_{n=-\infty}^{\infty}x[n]z^{-n})(\sum_{n=-\infty}^{\infty}h[n]z^{-n})$
 
 \subsection*{Aufgabe 4}
 
 \subsection*{Aufgabe 5}
+\subsubsection*{a)}
+Impulsantwort $h[n]$:\newline
+\hspace*{5mm}$b_k={3, +2, -3}$\newline
+\hspace*{5mm}$h[n]=\sum_{k=0}^{M}b_k\delta[n-k]$\newline
+\hspace*{5mm}$h[n]=3\delta[n-0] + 2\delta[n-1] - 3\delta[n-2]$\newline
+%TODO SKIZZE
 
+\subsubsection*{b)}
+\underline{\textbf{Gegeben:}}\newline
+\hspace*{5mm}$x[n]=3e^{j(0.4\pi n - \frac{\pi}{2})}$ für alle n\newline
+\hspace*{5mm}
+%TODO Weiter
+
+\subsection*{Aufgabe 6}
+\underline{\textbf{Gegeben:}}\newline
+\hspace*{5mm}Frequenzgang: $H(\hat{\omega})=2jsin(\frac{\hat{\omega}}{2})e^{-j\frac{\hat{\omega}}{2}}$\newline
+\underline{\textbf{Gesucht:}}\newline
+\hspace*{5mm}Impulsantwort $h[n]$ und Differenzengleichung $y[n]$\newline
+%TODO Weiter
+
+\subsection*{Aufgabe 7}
+\underline{\textbf{Gegeben:}}\newline
+\hspace*{5mm}$h[n]=\sum_{m=0}^{N-1}h_2[m]h_1[n-m]$\newline
+\hspace*{5mm}$h_2[0]h_1[n-0]={-1 -2 -3 -4}$\newline
+\hspace*{5mm}$h_2[1]h_1[n-1]={1, 2, 3, 4}$\newline
+\hspace*{5mm}$h_2[2]h_1[n-2]={-1 -2 -3 -4}$\newline
+\hspace*{5mm}$h[n]h_1[n-0]={-1, -1, -2, -3, 1, -4}$
+%TODO Frequenzgang
 \end{document}
