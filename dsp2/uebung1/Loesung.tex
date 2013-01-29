@@ -1,0 +1,47 @@
+\documentclass[12pt]{scrreprt}
+\usepackage{acronym}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{url}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{units}
+\usepackage{setspace}
+\usepackage{tikz}
+\title{Lawinensimulation}
+\author{B.Sc. Markus Neuerburg}
+\date{16.05.2012}
+
+\begin{document}
+\setlength{\topmargin}{0cm}
+\parindent 0pt
+\section*{DSP II Übungsblatt 1}
+\subsection*{Aufgabe 1.6}
+\subsubsection*{a)}
+\begin{equation}
+	x(t)=A cos(\omega_0 t + \phi) = A cos(\omega_0(t-t_1))
+\end{equation}
+Gegeben:\newline
+$T=0,5 sec,$\newline
+$t_1=0,1 sec$\newline
+Aus obiger Gleichung ist ersichtlich, dass $\phi=-t_1 \omega_0$ sein muss mit $\omega_0= 2 \pi f$ und $f=\frac{1}{T}$ folgt: $\phi=-t_1 \frac{2 \pi}{T} = -0,1sec \frac{2 \pi}{0,5sec} = -1,26 rad  \frac{180}{\pi} = -72,2^\circ$
+\subsubsection*{b)}
+\begin{equation}
+	x(t)=Re \lbrace e^{j 6 \pi (t + 0,2)} \rbrace
+\end{equation}
+Gesucht:\newline
+Zeitverschiebung $t_1$\newline
+Aus obiger Gleichung folgt: $Re \lbrace e^{j 6 \pi (t + 0,2)} \rbrace = cos[6\pi(t + 0,2)] = cos[6\pi(t - (-0,2))] \newline \Rightarrow t_1 = -0,2$
+\subsection*{Aufgabe 1.7}
+\subsubsection*{a)}
+\begin{equation}
+	x_1(t)=7cos(\omega_0 t - \frac{3\pi}{4}, x_2(t)=10cos(\omega_0 t - \frac{2\pi}{3}
+\end{equation}
+Gesucht: \newline
+Das überlagerte Signal $x_3(t) = x_1(t) + x_2(t)$ in Kosinusform $Acos(\omega_0 + \phi)$
+\end{document}
