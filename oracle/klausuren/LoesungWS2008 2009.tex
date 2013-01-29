@@ -1,0 +1,81 @@
+\documentclass[12pt]{scrreprt}
+\usepackage{acronym}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{url}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{units}
+\usepackage{setspace}
+\usepackage{tikz}
+\title{Lawinensimulation}
+\author{B.Sc. Markus Neuerburg}
+\date{16.05.2012}
+
+\begin{document}
+\section*{Aufgabe 1: Oracle-SQL, 9 Punkte (3+2+4)}
+\subsection*{a)}
+SELECT datum GREATEST(wert1, wert2, wert3, wert4, wert5, wert6) gr,\newline
+\hspace*{5mm}LEAST(wert1, wert2, wert3, wert4, wert5, wert6) l\newline
+\hspace*{5mm}FROM messwerte;\newline
+\subsection*{b)}
+SELECT datum, wert1, wert1-LAG(wert1, 1)\newline
+\hspace*{5mm}(ORDER BY datum);\newline
+\subsection*{c)}
+CREATE ROLE R1\newline
+CREATE USER leser NOT IDENTIFIED\newline
+GRANT select(datum, wert) ON R1 TO leser\newline
+\section*{Aufgabe 2: Trigger, 8 Punkte(2+6)}
+\subsection*{a)}
+CREATE TRIGGER OR REPLACE triger1\newline
+\hspace*{5mm}BEFORE UPDATE ON angestellte\newline
+\hspace*{5mm}WHEN new.gehalt != old.gehalt\newline
+Begin\newline
+\hspace*{5mm}INSERT INTO archive(:old.pers\_id, :old.gehaklt, :new.gehalt, to\_date(now()), :new.kommentar)\newline
+END\newline
+\subsection*{b)}
+CREATE TRIGGER OR REPLACE trigger2\newline
+\hspace*{5mm}AFTER INSERT ON archive\newline
+\hspace*{5mm}WHEN old.gehalt=new.gehalt\newline
+Begin\newline
+\hspace*{5mm}UPDATE archive SET kommentar = 'Gehalt identisch zum' $||$ :old.datum\newline
+\hspace*{5mm}WHERE :old.pers\_id = :new.pers\_id AND\newline
+\hspace*{5mm}datum = :new.datum\newline
+\section*{Aufgabe 3 Objekte in Oracle, 9 Punkte (3+2+2+2)}
+\subsection*{a)}
+CREATE OR REPLACE type\_zimmer\newline
+CREATE TYPE zimmer\_t AS OBJECT(nummer INTEGER, bettenanzahl INTEGER);\newline
+CREATE TYPE zimmer\_tab IS TABLE OF zimmer\_type;\newline
+CREATE TABLE hotel(tel INTEGER, name VARCHAR(20), zimmer zimmer\_tab);\newline
+NASTED TABLE zimmer STORE AS hotel\_zimmer;\newline
+\subsection*{b)}
+INSERT INTO hotel VALUES(\newline
+\hspace*{5mm}5550101, 'Zum Orakel',\newline
+\hspace*{5mm}zimmer\_tab(1,2),\newline
+\hspace*{5mm}zimmer\_tab(1,2),\newline
+\hspace*{5mm}zimmer\_tab(1,2));\newline
+\subsection*{c)}
+SELECT zimmer\_tab.nummer \newline
+\hspace*{5mm}WHERE zimmer\_tab.bettenanzahl=2\newline
+\hspace*{5mm}AND name='Zum Orakel'\newline
+\hspace*{5mm}FROM hotel;\newline
+\subsection*{d)}
+SELECT name, SUM(zimmer\_tab.bettenanzahl) s FROM hotel h,\newline
+\hspace*{5mm}TABLE(h.zimmer) z ORDER BY s desc;
+\section*{Aufgabe 4: Rekursion in Orakle, 6 Punkte (3+1+2)}
+\subsection*{a)}
+SELEKT parent, child FROM tree\newline
+\hspace*{5mm}START WITH parent = 1\newline
+\hspace*{5mm}CONNECT BY parent = PRIOR child;\newline
+\subsection*{b)}
+SELECT child, LEVEL FROM tree\newline
+\hspace*{5mm}CONNECT BY parent = PRIOR child;\newline
+\subsection*{c)}
+SELECT child, CONNECT\_BY\_ISLEAF\newline
+\hspace*{5mm}FROM tree;
+\end{document}

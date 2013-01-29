@@ -1,0 +1,84 @@
+\documentclass[12pt]{scrreprt}
+\usepackage{acronym}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[english, ngerman]{babel}
+\usepackage{url}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{units}
+\usepackage{setspace}
+\usepackage{tikz}
+\title{Lawinensimulation}
+\author{B.Sc. Markus Neuerburg}
+\date{16.05.2012}
+
+\begin{document}
+\section*{Aufgabe 1: Oracle-SQL, 10 Punkte (3+3+4)}
+\subsection{a)}
+SELECT jahr, SUM(VK-EK) FROM haustier GROUP BY jahr;
+
+\subsection*{b)}
+SELECT Name, Tierart, FROM haustier\newline
+GebDatum in (SELECT min(GebDatum) FROM haustier) OR\newline
+GebDatum in (SELECT min(GebDatum) FROM haustier $>$ (SELECT min(GebDatum) FROM haustier))) OR\newline
+WHERE GebDatum in
+(
+\hspace*{5mm}SELECT min(GebDatum) FROM haustier $>$\newline
+\hspace*{5mm}(\newline
+\hspace*{10mm}SELECT min(GebDatum)FROM haustier $>$\newline
+\hspace*{10mm}(\newline
+\hspace*{15mm}SELECT min(GebDatum) FROM haustier\newline
+\hspace*{10mm})\newline
+\hspace*{5mm})\newline
+);
+
+\subsection*{c)}
+
+
+\section*{Aufgabe 2: Objekte in Oracle, 10 Punkte (3+3+4)}
+\subsection*{a)}
+CREATE TYPE Besitzer\_type TYPE AS OBJECT(PRIMARY KEY Name varchar(20), Anschrift varchar(50));\newline
+CREATE TYPE Besitzer\_tab IS TABLE OF Besitzer\_type;
+\subsection*{b)}
+ALTER TABLE Haustier ADD(Besitzer Besitzer\_tab);\newline
+NASTED TABLE Besitzer STORE AS Besitzer\_tab;
+\subsection*{c)}
+CREATE TYPE Impfungen\_type AS OBJECT(Name varchar(20));\newline
+CREATE TYPE Impfungen\_tab IS TABLE OF Impfungen\_type;\newline
+ALTER TABLE ADD(Impfungen Impfungen\_tab);\newline
+NASTED TABLE Impfungen STORE AS Tier\_impfungen;
+\subsection*{d)}
+UPDATE haustier SET Besitzer\_tab(name = 'alter Mann', anschrift = 'Meer', Impfungen\_tab(name='A, B') WHERE ID=3;
+
+\section*{Aufgabe 3: Trigger, 10 Punkte(4+6)}
+CREATE OR REPLACE TRIGGER tr\_preis \newline
+BEFORE INSERT ON haustier\newline
+BEGIN\newline
+\hspace*{5mm}SELECT SUM(EK) as sek INTO budget FROM haustier\newline
+\hspace*{5mm}IF budget.s $+$ :new.EK $>$ 10.000\newline
+\hspace*{10mm}INSERT INTO haustier(...) VALUES(...);\newline
+\hspace*{5mm}END IF\newline
+END;
+\newpage
+\section*{b)}
+CREATE OR REPLACE TRIGGER tr\_VK \newline
+BEFORE INSERT ON haustier OR UPDATE ON haustier\newline
+BEGIN\newline
+\hspace*{5mm}DECLARE vk\_max EXCEPTION;\newline
+\hspace*{5mm}PRAGMA EXCEPTION\_INT(vk\_max, 100);
+\hspace*{5mm}IF :new.Tierart != 'Elefant'\newline
+\hspace*{10mm}SELECT * INTO v\_maxVK FROM MaxVK\newline
+\hspace*{10mm}WHERE Tierart = :new.tierart\newline
+\hspace*{10mm}IF :new.VK $<$ v\_maxVK.maxVK\newline
+\hspace*{15mm}RAISE vkmax;\newline
+\hspace*{10mm}END IF;\newline
+\hspace*{5mm}EXCEPTION WHERE NO\_DATA\_FOUND\newline
+\hspace*{10mm}THEN 'Preis ist größer als maximaler Verkaufspreis'\newline
+\hspace*{5mm}END IF;\newline
+END;
+\end{document}

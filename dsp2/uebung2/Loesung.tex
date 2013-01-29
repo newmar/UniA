@@ -1,0 +1,57 @@
+\documentclass[12pt]{scrreprt}
+\usepackage{acronym}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{url}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{units}
+\usepackage{setspace}
+\usepackage{tikz}
+\title{Lawinensimulation}
+\author{B.Sc. Markus Neuerburg}
+\date{16.05.2012}
+
+\begin{document}
+\setlength{\topmargin}{0cm}
+\parindent 0pt
+\section*{DSP II Übungsblatt 2}
+\subsection*{Aufgabe 1}
+\underline{\textbf{Gegeben:}}\newline
+\hspace*{5mm}y[n]=6x[n]-5x[n-1]+x[n-2]\newline
+\newline
+\underline{\textbf{Gesucht:}}\newline
+\hspace*{5mm}Pol- und Nullstellen\newline
+\newline
+\hspace*{5mm}$b_k=\{6,-5,1\}$\newline
+\hspace*{5mm}$H(z)=\sum_{k=0}^{M}{b_k z^{-k}}$\newline
+\hspace*{5mm}$H(z)=6z^-0-5z^-1+1z^-2$\newline
+\hspace*{5mm}$H(z)=1-\frac{5}{z}+\frac{1}{z^2}$\newline
+\hspace*{5mm}$H(z)=1-\frac{5(z^2)}{z^3}+\frac{1(z)}{z^3}$\newline
+\hspace*{5mm}$H(z)=\frac{z^3-5z^2+z}{z^3}$\newline
+\hspace*{5mm}$H(z)=\frac{z^2-5z+1}{z^2}$\newline
+\hspace*{5mm}\underline{Polstellen:}\newline
+\hspace*{5mm}0 doppelt\newline
+\hspace*{5mm}\underline{Nullstellen:}\newline
+\hspace*{5mm}$1-5z+z^2=0$\newline
+\hspace*{5mm}$\Rightarrow$ $x_{1,2}=\frac{5 \pm \sqrt{5^2 - 4}}{2}$\newline
+\hspace*{5mm}$x_{1,2}=\frac{5 \pm \sqrt{21}}{2}$\newline
+\hspace*{5mm}$x_{1,2}=\{4.793, 0.209\}$
+
+\subsection*{Aufgabe 2}
+\underline{\textbf{Gegeben:}}\newline
+\hspace*{5mm}$H(z)=4(1-z^{-1})(1+z^{-1})(1+0.8z^{-1})$\newline
+\newline
+\underline{\textbf{Gesucht:}}\newline
+\hspace*{5mm}Impulsantwort $h[n]=\sum_{k=0}^{M} b_k \delta[n-k]$\newline
+\hspace*{5mm}$b_k=\{-1, 1, 0.8\}$\newline
+\hspace*{5mm}$h[n]=-1\delta[n]+1\delta[n-1]+0.8\delta[n-2]$
+
+\subsection*{Aufgabe 3}
+
+\end{document}
