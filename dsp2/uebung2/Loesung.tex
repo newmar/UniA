@@ -13,6 +13,7 @@
 \usepackage{units}
 \usepackage{setspace}
 \usepackage{tikz}
+\usepackage{pgfplots}
 \title{Lawinensimulation}
 \author{B.Sc. Markus Neuerburg}
 \date{16.05.2012}
@@ -98,4 +99,45 @@ $h_2[2]h_1[n-2]$	&     &     & -1  & -2  & -3  & -4\\\hline
 $y[n]$              & -1  & -1  & -2  & -3  &  1  & -4\\
 \end{tabular}
 %TODO Frequenzgang
+
+\subsection*{Aufgabe 8}
+\subsubsection*{a)}
+$b_k={1, 2, 1}$\newline
+$H(\hat{\omega})=1-2e^{-j\hat{\omega}}+e^{-2j\hat{\omega}}=1-2cos(\hat{\omega})+ 
+j sin(\hat{\omega}) + e^{-2j\hat{\omega}} + cos(\hat{\omega}) - 2j sin(\hat{\omega})$\newline
+$H(\hat{\omega})=1 - cos(\hat{\omega}) - j sin(\hat{\omega})$\newline
+$\Re\{H(\hat{\omega})\}=(1 - cos(\hat{\omega}))$, $\Im\{H(\hat{\omega})\}=-sin(\hat{\omega})$\newline
+$\vert H(\hat{\omega}) \vert = \left[(1-cos(\hat{\omega}))^2 - sin^2(\hat{\omega})\right]^{\frac{1}{2}}$\newline
+$\vert H(\hat{\omega}) \vert = \left[1-2cos(\hat{\omega}) + cos(\hat{\omega})^2 - \frac{(1-cos(2\hat{\omega}))}{2}\right]^{\frac{1}{2}}$\newline
+Laut Skript:\newline
+$\vert H(\hat{\omega}) \vert = \left[ 2 (1-cos(\hat{\omega}))\right]^\frac{1}{2} = 2 \vert sin(\frac{\hat{\omega}}{2})\vert$\newline
+$\angle H(\hat{\omega}) = tan^{-1}\left(\frac{sin(\hat{\omega})}{1-cos(\hat{\omega})}\right)$\newline
+\newline
+
+\subsubsection*{b)}
+\begin{tikzpicture}
+    \begin{axis}[domain=-3:3,legend pos=outer north east]
+    \addplot[blue, mark=none]{2*abs{sin(x/2)}}; 
+    \legend{$2\vert sin(x/2) \vert$}
+    \end{axis}
+\end{tikzpicture}
+\subsubsection*{c)}
+Es handelt sich um einen Hochpass.\newline
+
+\subsection*{Aufgabe 9}
+$h[n]=b_0(a_1)^n u[n] + b_1(a_7)^{n-7} u[n-7]=
+\begin{cases}
+0							& \text{für } n<0\\
+b_0 						& \text{für } n=0\\
+(b_0 + b_7 a_1^{-7})(a_1)^n	& \text{sonst}
+\end{cases}
+$\newline
+\begin{tikzpicture}
+    \begin{axis}[domain=0:10,legend pos=outer north east]
+    \addplot[blue, mark=none]{(1/156250)*(0.5)^x}; 
+    \legend{$(5 0.5^{-7})(0.5)^n$}
+    \end{axis}
+\end{tikzpicture}
+
+\subsection*{Aufgabe 10}
 \end{document}
