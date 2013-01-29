@@ -86,11 +86,16 @@ Impulsantwort $h[n]$:\newline
 %TODO Weiter
 
 \subsection*{Aufgabe 7}
-\underline{\textbf{Gegeben:}}\newline
 \hspace*{5mm}$h[n]=\sum_{m=0}^{N-1}h_2[m]h_1[n-m]$\newline
-\hspace*{5mm}$h_2[0]h_1[n-0]={-1 -2 -3 -4}$\newline
-\hspace*{5mm}$h_2[1]h_1[n-1]={1, 2, 3, 4}$\newline
-\hspace*{5mm}$h_2[2]h_1[n-2]={-1 -2 -3 -4}$\newline
-\hspace*{5mm}$h[n]h_1[n-0]={-1, -1, -2, -3, 1, -4}$
+\newline
+\begin{tabular}{r|cccccc}
+$n$ 				&  0  &  1  &  2  & 3   &  4  & 5 \\\hline
+$h_1[n]$			&  1  &  2  &  3  & 4   &     &   \\
+$h_2[n]$			& -1  &  1  & -1  &     &     &   \\\hline
+$h_2[0]h_1[n-0]$	& -1  & -2  & -3  & -4  &     &   \\
+$h_2[1]h_1[n-1]$	&     &  1  &  2  &  3  &  4  &   \\
+$h_2[2]h_1[n-2]$	&     &     & -1  & -2  & -3  & -4\\\hline
+$y[n]$              & -1  & -1  & -2  & -3  &  1  & -4\\
+\end{tabular}
 %TODO Frequenzgang
 \end{document}
