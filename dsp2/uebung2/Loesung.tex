@@ -29,33 +29,33 @@
 \underline{\textbf{Gesucht:}}\newline
 \hspace*{5mm}Pol- und Nullstellen\newline
 \newline
-\hspace*{5mm}$b_k=\{6,-5,1\}$\newline
-\hspace*{5mm}$H(z)=\sum_{k=0}^{M}{b_k z^{-k}}$\newline
-\hspace*{5mm}$H(z)=6z^{-0}-5z^{-1}+1z^{-2}$\newline
-\hspace*{5mm}$H(z)=1-\frac{5}{z}+\frac{1}{z^2}$\newline
-\hspace*{5mm}$H(z)=1-\frac{5(z^2)}{z^3}+\frac{1(z)}{z^3}$\newline
-\hspace*{5mm}$H(z)=\frac{z^3-5z^2+z}{z^3}$\newline
-\hspace*{5mm}$H(z)=\frac{z^2-5z+1}{z^2}$\newline
+\hspace*{5mm}$H[z]=\frac{6z^2 - 5z + 1}{z^2}$
 \hspace*{5mm}\underline{Polstellen:}\newline
 \hspace*{5mm}0 doppelt\newline
 \hspace*{5mm}\underline{Nullstellen:}\newline
-\hspace*{5mm}$1-5z+z^2=0$\newline
-\hspace*{5mm}$\Rightarrow$ $x_{1,2}=\frac{5 \pm \sqrt{5^2 - 4}}{2}$\newline
-\hspace*{5mm}$x_{1,2}=\frac{5 \pm \sqrt{21}}{2}$\newline
-\hspace*{5mm}$x_{1,2}=\{4.793, 0.209\}$
+\hspace*{5mm}$1-5z+6z^2=0$\newline
+\hspace*{5mm}$\Rightarrow$ $x_{1,2}=\frac{5 \pm \sqrt{5^2 - 24}}{12}$\newline
+\hspace*{5mm}$x_{1,2}=\frac{5 \pm 1}{12}$\newline
+\hspace*{5mm}$x_{1,2}=\{0.5, \frac{1}{3}\}$
 
 \subsection*{Aufgabe 2}
 \underline{\textbf{Gegeben:}}\newline
 \hspace*{5mm}$H(z)=4(1-z^{-1})(1+z^{-1})(1+0.8z^{-1})$\newline
-\newline
+\hspace*{5mm}$H(z)=4((1+Z^{-1}-Z^{-1}-z^{-2})(1+0.8z^{-1}))$\newline
+\hspace*{5mm}$H(z)=4((1-z^{-2})(1+0.8z^{-1}))$\newline
+\hspace*{5mm}$H(z)=4(1+0.8z^{-1} - z^{-2} -0.8z^{-3} )$\newline
+\hspace*{5mm}$H(z)=4+3.2z^{-1} - 4z^{-2} - 3.2z^{-3}$\newline
 \underline{\textbf{Gesucht:}}\newline
-\hspace*{5mm}Impulsantwort $h[n]=\sum_{k=0}^{M} b_k \delta[n-k]$\newline
-\hspace*{5mm}$b_k=\{-1, 1, 0.8\}$\newline
-\hspace*{5mm}$h[n]=-1\delta[n]+1\delta[n-1]+0.8\delta[n-2]$
+\hspace*{5mm}$h[n]=-3.2x[n-3] - 4x[n-2] + 3.2x[n-1] + 4x[n]$
 
 \subsection*{Aufgabe 3}
 Ausgangssignal $y[n]$:\newline
-\hspace*{5mm}$y[n]=x[n]*h[n]$\newline
+\hspace*{5mm}$y[n]=x[n]*h[n] = X[z]H[z] = Y[z]$\newline
+\hspace*{5mm}$X[z]=z^{-1} - z^{-2} + z^{-3} - z^{-4}$\newline
+\hspace*{5mm}$H[z]=1 + 2z^{-1} - 3z^{-2} + 4z^{-3}$\newline
+\hspace*{5mm}$Y[z]=X[z]H[z]$
+
+
 \hspace*{5mm}$y[n]=\sum_{m=0}^{N-1}x[m]h[n-m]$\newline
 \hspace*{5mm}$y[n]=x[0]h[n-0]+x[1]h[n-1]+x[2]h[n-2]+x[3]h[n-3]$\newline
 \newpage
