@@ -84,7 +84,7 @@ where participant='Markus';\newline
 \newline
 Um die Gefahr einer Sql-Injection zu minimieren $\Rightarrow$ Berechtigungen beschränken\newline
 \newline
-\section{Benutzerrechte}
+\section{Benutzer und Benutzerrechte}
 Identifikation: durch Benutzername\newline
 Attribute:
 \begin{itemize}
@@ -149,4 +149,38 @@ Attribute:
 \begin{lstlisting}
 	CREATE ROLE <rollenname> [IDENTIFIED BY <passwort> || NOT IDENTIFIED];
 \end{lstlisting}
+\lstset{caption={Löschen von Rollen},label=DescriptiveLabel}
+\begin{lstlisting}
+	DROP ROLE <rollenname> [CASCADE]; --Rollen koennen auf Rollen basieren
+	[GRANT <rollenname> to <schema>;
+	 GRANT  CONNECT TO student_role;]
+\end{lstlisting}
+\newpage
+
+Rechte der Rolle \textbf{CONNECT}:
+\begin{itemize}
+	\item ALTER SESSION
+	\item CREATE CLUSTER, CREATE DATABASE, CREATE SEQUENZ, CREATE SYNONYM, CREATE SESSION, CREATE TABLE, CREATE VIEW
+	\item LINK
+\end{itemize}
+with admin option: Rechte dürfen weitergegeben werden\newline
+
+\subsection{Rechte vergeben / entziehen}
+Rechte gewähren GRANT; Rechte entziehen REVOKE
+\lstset{caption={Gewähren und löschen von Objektrechten},label=DescriptiveLabel}
+\begin{lstlisting}
+	GRANT CREATE TABLE, ALTER TABLE TO "0815";
+	REVOKE CREATE TABLE, ALTER TABLE TO "0815";
+\end{lstlisting}
+Der Benutzer der Berechtigungen mit GRANT vergibt kann diese mit REVOKE auch wieder entziehen!\newline
+Ein Benutzer bekommt die Rechte:
+\begin{itemize}
+\item durch Vereinigung der Rechte aller Rollen bei Anmeldung
+\item Liste der Default-Rollen mittels ALTER USER ändern\newline
+		ALTER USER alfons [DEFAULT ROLE PETOMOTOMGR, PETOMOTOUSER || ALL]\newline
+		ALL 
+\item SET ROLE Petomotouser IDENTIFIED BY 'passwort'; während einer Session
+\item Alle Rollen abwählen: SET ROLE NONE;
+\end{itemize}
+
 \end{document}
