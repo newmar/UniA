@@ -170,7 +170,9 @@ Rechte gewähren GRANT; Rechte entziehen REVOKE
 \lstset{caption={Gewähren und löschen von Objektrechten},label=DescriptiveLabel}
 \begin{lstlisting}
 	GRANT CREATE TABLE, ALTER TABLE TO "0815";
-	REVOKE CREATE TABLE, ALTER TABLE TO "0815";
+	REVOKE CREATE TABLE, ALTER TABLE 
+	ON [<besitzer>] <object>
+	FROM <benutzer- oder rollenname>;
 \end{lstlisting}
 Der Benutzer der Berechtigungen mit GRANT vergibt kann diese mit REVOKE auch wieder entziehen!\newline
 Ein Benutzer bekommt die Rechte:
@@ -182,5 +184,9 @@ Ein Benutzer bekommt die Rechte:
 \item SET ROLE Petomotouser IDENTIFIED BY 'passwort'; während einer Session
 \item Alle Rollen abwählen: SET ROLE NONE;
 \end{itemize}
+
+\chapter{Systemtabellen}
+
+
 
 \end{document}
