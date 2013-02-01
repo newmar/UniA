@@ -71,7 +71,7 @@
 	CREATE OR REPLACE TYPE LiferantenNrType AS TABLE OF INTEGER;
 	CREATE TABLE (LieferantenNr LieferantenNrType);
 	CREATE TABLE Auftrag(ID INTEGER PRIMARY KEY, KundenNr INTEGER);
-	CREATE TABLE besteht_aus_Artikel(Nr INTEGER PRIMARY KEY, LiferantenNr LiferantenNrList);
+	CREATE TABLE Artikel(Nr INTEGER PRIMARY KEY, ID REFERENCES Auftrag(ID), LiferantenNr LiferantenNrType);
 	NASTED TABLE LiferantenNr STORE AS LiferantenNrTab;
 \end{lstlisting}
 
