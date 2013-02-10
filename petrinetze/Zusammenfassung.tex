@@ -1,0 +1,96 @@
+\documentclass[12pt]{scrreprt}
+\usepackage{acronym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[ngerman]{babel}
+\usepackage{breakurl}
+
+\usepackage{cite}
+\usepackage{color}
+
+\usepackage{float}
+
+\usepackage{graphicx}
+
+\usepackage{hyperref}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{listings}
+\usepackage{longtable}
+
+\usepackage{url}
+
+\usepackage{rotating}
+
+\usepackage{setspace}
+\usepackage{subfigure}
+
+\usepackage{tabularx}
+\usepackage{tabto}
+\usepackage{threeparttable}
+\usepackage{tikz}
+
+\usepackage{units}
+
+\urlstyle{same}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\def\TReg{\textsuperscript{\textregistered}}
+\def\TCop{\textsuperscript{\textcopyright}}
+\def\TTra{\textsuperscript{\texttrademark}}
+
+
+\title{Zusammenfassung Petrinetze}
+\author{B. Sc. Markus Neuerburg}
+\date{\today}
+
+\begin{document}
+\setlength{\topmargin}{0cm}
+\parindent 0pt
+\onehalfspacing
+
+\tableofcontents
+\newpage
+\chapter*{Abkürzungsverzeichnis}
+\begin{acronym}[HBCI]
+	\acro{aa}[$\mathrm{T^*}$]{akzeptiertes Alphabet}
+	\acro{es}[$\mathrm{\lambda}$]{leere Schaltfolge}
+\end{acronym}
+
+\chapter{Grundbegriffe}
+\begin{itemize}
+	\item $t \in T:$						\tabto{4cm} Transition aus der Menge aller Transitionen
+	\item $s \in S:$						\tabto{4cm} Stelle aus der Menge aller Stellen
+	\item $(x, y) \in F:$					\tabto{4cm} Kannte aus der Menge aller Flussrelationen (Kanten)
+	\item $W:$								\tabto{4cm} Gewichtungs-Funktion
+	\item $W(x, y):$						\tabto{4cm} Kanntengewicht (Gewicht auf den Pfeilen)
+	\item $^\bullet x=\{y \mid (y,x) \in F \}$	\tabto{4cm} Der Vorbereich von x\newline
+	Sprich: Vorbereich von x ist y mit der Eigenschaft: Kannte von y nach x ist Element aller Flussrelationen (Pfeile)
+	\item $x^\bullet =\{y \mid (x, y) \in F\}$	\tabto{4cm} Der NAchbereich von x\newline
+	Sprich: Nachbereich von x ist y mit der Eigenschaft: Kannte von x nach y ist Element aller Flussrelationen (Pfeile)
+	\item $M:S\mapsto \mathbb{N}$			\tabto{4cm} Markierung\newline
+	Eine Markierung M ist eine Menge von Stellen abgebildet auf $\mathbb{N}$
+	\item 
+	\item 
+\end{itemize}
+
+\chapter{Definitionen}
+\section{Definition 2.2 (aktivierte Transition)}
+$t \in T$ ist aktiviert unter Markierung $M$, $M\left[t\right>$, falls $\forall s \in S:W(s,t) \leq M(s)$\newline
+	Sprich: Transition $t$ ist aktiviert unter Markierung $M$, falls für alle Stellen aus der Menge $S$ gilt, dass das Kanntengewicht der Kannte von s nach t kleiner oder gleich Anzahl der Marken auf Stelle $s$ ($M(s)$) ist.
+\section{Definition 2.3 (Schaltfolge)}
+Sei $w \in$ \ac{aa} : $M\left[w\right>$ bzw. $M\left[w\right>M'$ falls:
+\begin{itemize}
+	\item $w =$ \ac{es} (und $M=M'$)
+	\item $w = w't$ mit $t \in T$, $M\left[w'\right>M''\left[t'\right>$ (und $M''\left[t\right>M'$)
+\end{itemize}
+$FS(N)=\{w \in$ \ac{aa}$ \mid M_N \left[w\right>\}$ Menge der Schaltfolgen von N (firing sequence)\newline
+$w \in T^\omega$ unendliche Schaltfolge (falls alle endlichen Präfixe von w Schaltfolgen sind)
+\chapter{Übungen}
+
+\section{Übung 1}
+
+\end{document}
