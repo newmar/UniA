@@ -34,6 +34,7 @@
 
 \usepackage{units}
 
+\usetikzlibrary{arrows, shapes, snakes, automata, backgrounds, petri}
 \urlstyle{same}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -73,8 +74,6 @@
 	Sprich: Nachbereich von x ist y mit der Eigenschaft: Kannte von x nach y ist Element aller Flussrelationen (Pfeile)
 	\item $M:S\mapsto \mathbb{N}$			\tabto{4cm} Markierung\newline
 	Eine Markierung M ist eine Menge von Stellen abgebildet auf $\mathbb{N}$
-	\item 
-	\item 
 \end{itemize}
 
 \chapter{Definitionen}
@@ -92,5 +91,88 @@ $w \in T^\omega$ unendliche Schaltfolge (falls alle endlichen Präfixe von w Sch
 \chapter{Übungen}
 
 \section{Übung 1}
+\subsection{a}
+\begin{figure}[H]
+\begin{tikzpicture}[node distance=1.3cm, >=stealth', bend angle=45, auto]
+  \tikzstyle{place}=[circle, thick, draw=blue!75, fill=blue!20, minimum size=6mm]
+  \tikzstyle{red place}=[place, draw=red!75, fill=red!20]
+  \tikzstyle{transition}=[rectangle, thick, draw=black!75, fill=black!20, minimum size=4mm]
+  \tikzstyle{every label}=[red]
 
+	\begin{scope}
+		\node[place, tokens=1] 	at(0,0)		(s1){};
+		\node[place]			at(0,-2)	(s2){};
+		\node[place]			at(2.1,0)	(s3){};
+		\node[place, tokens=1]	at(2.1,-2)	(s4){};
+		\node[place, tokens=1]	at(4.1,0)	(s5){};
+		\node[place]			at(4.1,-2)	(s6){};
+		\node[place]			at(6.1,0)	(s7){};
+		\node[place, tokens=1]	at(6.1,-2)	(s8){};
+		
+		\node[transition]	at(-1,-1)	(t1){}
+			edge[pre, bend left]			(s1)
+			edge[post,bend right]			(s2);
+		\node[transition]	at(1.1,-1)	(t2){}
+			edge[pre, bend left]			(s2)
+			edge[post,bend right]			(s1)
+			edge[pre, bend right]			(s4)
+			edge[post,bend left]			(s3);
+		\node[transition]	at(3.1,-1)	(t3){}
+			edge[pre, bend right]			(s3)
+			edge[post,bend left]			(s4)
+			edge[pre, bend left]			(s5)
+			edge[post,bend right]			(s6);
+		\node[transition]	at(5.1,-1)	(t4){}
+			edge[pre, bend left]			(s6)
+			edge[post,bend right]			(s5)
+			edge[pre, bend right]			(s8)
+			edge[post,bend left]			(s7);
+		\node[transition]	at(7.1,-1)	(t5){}
+			edge[pre, bend right]			(s7)
+			edge[post,bend left]			(s8);
+	\end{scope}
+\end{tikzpicture}
+\caption{Lösung 1}
+\end{figure}
+\begin{figure}[H]
+\begin{tikzpicture}[node distance=1.3cm, >=stealth', bend angle=45, auto]
+  \tikzstyle{place}=[circle, thick, draw=blue!75, fill=blue!20, minimum size=6mm]
+  \tikzstyle{red place}=[place, draw=red!75, fill=red!20]
+  \tikzstyle{transition}=[rectangle, thick, draw=black!75, fill=black!20, minimum size=4mm]
+  \tikzstyle{every label}=[red]
+
+	\begin{scope}
+		\node[place, tokens=1] 	at(0,0)		(s1){};
+		\node[place]			at(0,-2)	(s2){};
+		\node[place]			at(2.1,0)	(s3){};
+		\node[place, tokens=2]	at(2.1,-2)	(s4){};
+		\node[place, tokens=1]	at(4.1,0)	(s5){};
+		\node[place]			at(4.1,-2)	(s6){};
+		
+		\node[transition]	at(-1,-1)	(t1){}
+			edge[pre, bend left]			(s1)
+			edge[post,bend right]			(s2);
+		\node[transition]	at(1.1,-1)	(t2){}
+			edge[pre, bend left]			(s2)
+			edge[post,bend right]			(s1)
+			edge[pre, bend right]			(s4)
+			edge[post,bend left]			(s3);
+		\node[transition]	at(3.1,-1)	(t3){}
+			edge[pre, bend right]			(s3)
+			edge[post,bend left]			(s4)
+			edge[pre, bend left]			(s5)
+			edge[post,bend right]			(s6);
+		\node[transition]	at(5.1,-1)	(t4){}
+			edge[pre, bend left]			(s6)
+			edge[post,bend right]			(s5);
+	\end{scope}
+\end{tikzpicture}
+\caption{Lösung 2}
+\end{figure}
+\subsection{b}
+$n=0:$ $M(1,0,0) \in M_N$\newline
+$n=1:$ $M(1,0,1)$\newline
+Erreichbar mit:\newline
+$M_N\left[a\right>M'\left[b\right>M(1,0,1)$ = $M_N\left[(ab)\right>M(1,0,1)$ $w=(a,b)$\newline
+$n=n:$ $M_N\left[(ab)^n\right>M(1,0,n)$
 \end{document}
