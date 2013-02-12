@@ -202,4 +202,42 @@ Beweis:
 $t=c \wedge n>=1: M={(0,0,(n-1))} \in R$ \textcolor{green}{\checkmark}\newline
 $M'={(0,1,(n+1))}: t=b: M={(1,0,(n+1))} \in R$\textcolor{green}{\checkmark}\newline
 $M'={(0,0,n)}: \neg \exists t$  \textcolor{red}{$\lightning$}
+
+\subsection*{Aufgabe 3}
+Alle Markierungen:
+\begin{figure}[H]
+\begin{tikzpicture}
+	\node at (0,0) 			(m1){1,1,0,0,0};
+	\node at (0,-1.5)		(m2){0,0,1,0,0}
+		edge [pre] node[right] {s+} (m1);
+	\node at (0,-3)			(m3){0,0,0,1,1}
+		edge [pre] node[right] {e+} (m2);
+	\node at (-2, -4.5)		(m4){1,0,0,1,0}
+		edge [pre] node[left] {s-}(m3)
+		edge [post, bend left] node[left] {e-} (m1);
+	\node at (2, -4.5)		(m5){0,1,0,0,1}
+		edge [pre] node[right] {e-} (m3)
+		edge [post, bend right] node[right] {s-} (m1);
+
+\end{tikzpicture}
+\end{figure}
+Alle Codes:
+\begin{figure}[H]
+\begin{tikzpicture}
+	\node at (0,0) 			(m1){0,0};
+	\node at (0,-1.5)		(m2){0,1}
+		edge [pre] node[right] {s+} (m1);
+	\node at (0,-3)			(m3){1,1}
+		edge [pre] node[right] {e+} (m2);
+	\node at (-2, -4.5)		(m4){0,1}
+		edge [pre] node[left] {s-}(m3)
+		edge [post, bend left] node[left] {e-} (m1)
+		edge [post, color=red, bend left] (m2);
+	\node at (2, -4.5)		(m5){1,0}
+		edge [pre] node[right] {e-} (m3)
+		edge [post, bend right] node[right] {s-} (m1);
+\end{tikzpicture}
+\end{figure}
+Es besteht ein Konflikt. Zu vermeiden wäre der Konflikt mit einer zusätzlichen Stelle im Code.\newline
+Der STG ist jedoch konsistent, da nie s+, e+, s- oder e- zweimal hintereinander oder s+ und s- bzw e+ und e- sofort hintereinander ausgeführt werden.
 \end{document}
