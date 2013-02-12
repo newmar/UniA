@@ -240,4 +240,30 @@ Alle Codes:
 \end{figure}
 Es besteht ein Konflikt. Zu vermeiden wäre der Konflikt mit einer zusätzlichen Stelle im Code.\newline
 Der STG ist jedoch konsistent, da nie s+, e+, s- oder e- zweimal hintereinander oder s+ und s- bzw e+ und e- sofort hintereinander ausgeführt werden.
+\newpage
+
+\section*{Übung 2}
+\subsection*{Aufgabe 1}
+\subsubsection*{a)}
+$M_{N'} = M_N + \delta M$ 	\tabto{5cm} $FS(N) <= FS(N')$\newline
+$M_N \left[w\right>M_N'$ 	\tabto{5cm} $\Rightarrow w \in FS(N)$\newline
+$M_N + \delta M \left[w\right>M_N' + \delta M$ \tabto{5cm} $\Rightarrow w \in FS(N')$\newline
+$M_{N'} \left[w\right>M_N' + \delta M$ \tabto{5cm} $\Rightarrow w \in FS(N')$
+
+\subsubsection*{b)}
+
+\newpage
+\section*{Übung 3}
+\subsection*{Aufgabe 1}
+Schalten von 0 Transitionen:\newline
+$M_N \left[\lambda\right> M$ \tabto{4cm} $M_N = M = {1,2,1}$\newline
+
+\newline
+Schalten von 1 Transition:\newline
+Schalten von a b oder c:\newline
+${(1,2,1)} \left[a\right> {(0,1,1)}$\newline
+${(1,2,1)} \left[b\right> {(1,1,0)}$\newline
+${(1,2,1)} \left[c\right> {(1,2,0)}$\newline
+${(1,2,1)} \left[d\right> {(1,1,2)}$\newline
+Da es sich um eine Halbordnung handelt muss jedes Element einer Markierung mit den anderen Elementen der anderen Markierungen verglichen werden. Daraus resultiert, dass es sich bei $(1,1,2)$ und $(1,2,1)$ um maximale Markierungen handelt.
 \end{document}
