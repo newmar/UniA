@@ -89,6 +89,23 @@ Sei $w \in$ \ac{aa} : $M\left[w\right>$ bzw. $M\left[w\right>M'$ falls:
 \end{itemize}
 $FS(N)=\{w \in$ \ac{aa}$ \mid M_N \left[w\right>\}$ Menge der Schaltfolgen von N (firing sequence)\newline
 $w \in T^\omega$ unendliche Schaltfolge (falls alle endlichen Präfixe von w Schaltfolgen sind)
+
+\section{Definition 2.21}
+\subsection{tot}
+$t$ heißt tot unter $M$, falls $\forall M' \in \left[M\right> : \neg M'\left[t\right>$\newline
+$t$ heißt tot, falls $t$ tot unter $M_N$.\newline
+$M$ heißt tot, falls alle Transitionen tot unter $M$ sind.
+\newpage
+\subsection{lebendig}
+$t$ heißt lebendig unter $M$, falls $t$ unter keiner von $M$ erreichbaren Markierung $M'$ tot ist:\newline
+$\forall M' \in \left[M\right>\exists M'' \in \left[M'\right> :  M'' \left[t\right>$\newline
+$M$ heißt lebendig, wenn alle $t$ unter $M$ lebendig sind.\newline
+$t$ heißt lebendig, falls $t$ lebendig unter $M_N$.\newline
+$N$ heißt lebendig, falls alle Transitionen lebendig sind.
+
+\subsection{Identifikation von S-Invarianten}
+S-Invarianten Sind nützlich um Situationen zu untersuchen bei denen es zu Konflikten kommen kann. z.B. reader writer Prozess. Hier ist zu beachten, dass lesen und schreiben nicht gleichzeitig geschehen dürfen. Dass dies sichergestellt werden kann dürfen zu keinem Zeitpunkt die Marken auf der Stelle für die Zugriffsrechte ausrechen, dass nach dem Starten eines Schreibprozess sofort der Leseprozess geschalten werden kann. Das kann nur der Fall sein, wenn jede Marke auch wirklich verbraucht wird und immer nur soviele Marken auf die Stellen gelegt werden wie auch verbraucht werden. Gleiches gilt auch für den Leseprozess. Hier dürfen jedoch mehrere Leseprozesse hintereinander gestartet werden. Auch hier gilt: Alle Leseprozesse müssen erst beendet werden, dass ein Schreibprozess gestartet werden darf.
+
 \chapter{Übungen}
 
 \section{Übung 1}
