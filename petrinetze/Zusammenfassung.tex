@@ -4,6 +4,9 @@
 \usepackage{amssymb}
 
 \usepackage[ngerman]{babel}
+
+\usepackage{hyperref}
+
 \usepackage{breakurl}
 
 \usepackage{cite}
@@ -13,7 +16,7 @@
 
 \usepackage{graphicx}
 
-\usepackage{hyperref}
+
 
 \usepackage[utf8]{inputenc}
 
@@ -35,7 +38,7 @@
 
 \usepackage{units}
 
-\usetikzlibrary{arrows, shapes, snakes, automata, backgrounds, petri}
+\usetikzlibrary{arrows, shapes, decorations, automata, backgrounds, petri}
 \urlstyle{same}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -260,21 +263,34 @@ Der STG ist jedoch konsistent, da nie s+, e+, s- oder e- zweimal hintereinander 
 \newpage
 
 \section{Übung 2}
-\subsection*{Aufgabe 1}
+\subsection*{Aufgabe 2}
 \subsubsection*{a)}
-$M_{N'} = M_N + \delta M$ 	\tabto{5cm} $FS(N) <= FS(N')$\newline
-$M_N \left[w\right>M_N'$ 	\tabto{5cm} $\Rightarrow w \in FS(N)$\newline
+Behauptung:\newline
+$M_{N'} = M_N + \delta M$ 	\tabto{5cm} $\Rightarrow FS(N) <= FS(N')$\newline
+Beweis:\newline
+$M_N \left[w\right>M'$ 	\tabto{5cm} $\Leftarrow w \in FS(N)$\newline
 $M_N + \delta M \left[w\right>M_N' + \delta M$ \tabto{5cm} $\Rightarrow w \in FS(N')$\newline
-$M_{N'} \left[w\right>M_N' + \delta M$ \tabto{5cm} $\Rightarrow w \in FS(N')$
+Nach 2.7.\newline
+$M_{N'} \left[w\right>M_N' + \delta M$
 
 \subsubsection*{b)}
+$s'=S-\left\lbrace s_0\right\rbrace, W' = W \mid _{S-\left\lbrace s_0 \right\rbrace}, M_{N'} = M_N \mid  _{S-\left\lbrace s_0\right\rbrace}$\newline
+$M_N\left[w\right>M \Rightarrow M_{N'}\left[w\right>M' \wedge M' = M \mid _S-\left\lbrace s_0 \right\rbrace$\newline
+Induktionsanfang:\newline
+$w=\lambda:$\tabto{2cm}$M_{N} \left[w\right> M \Rightarrow M_N = M$\newline
+			\tabto{2cm}$M_{N'} \left[w\right> M' \Rightarrow M_{N'} = M \mid _S-\left\lbrace s_0 \right\rbrace$\newline
+Induktionsschritt:\newline
+$w=w't:$\tabto{2cm}$M_N \left[w'\right>M''$\newline
+		\tabto{2cm}$M_{N' \left[w'\right>}M''' \wedge M''' = M'' \mid _S-\left\lbrace s_0 \right\rbrace$ nach Induktion\newline
+Die Markierungen sind die Selben. Das 2.Netz hat lediglich eine Stelle weniger\newline
+Zu zeigen: \tabto{2cm} $M''\left[t\right>M \Rightarrow M'''\left[t\right>M' \wedge M' = M \mid _S-\left\lbrace s_0 \right\rbrace$
 
 \newpage
+
 \section{Übung 3}
 \subsection*{Aufgabe 1}
 Schalten von 0 Transitionen:\newline
 $M_N \left[\lambda\right> M$ \tabto{4cm} $M_N = M = {1,2,1}$\newline
- \newline
 Schalten von 1 Transition:\newline
 Schalten von a b oder c:\newline
 ${(1,2,1)} \left[a\right> {(0,1,1)}$\newline
@@ -282,4 +298,30 @@ ${(1,2,1)} \left[b\right> {(1,1,0)}$\newline
 ${(1,2,1)} \left[c\right> {(1,2,0)}$\newline
 ${(1,2,1)} \left[d\right> {(1,1,2)}$\newline
 Da es sich um eine Halbordnung handelt muss jedes Element einer Markierung mit den anderen Elementen der anderen Markierungen verglichen werden. Daraus resultiert, dass es sich bei $(1,1,2)$ und $(1,2,1)$ um maximale Markierungen handelt.
+
+\section{Übung 4}
+\subsection*{Aufgabe 1}
+$N_1:$	\tabto{2cm} ist lebendig\newline
+		\tabto{2cm} ist verklemmungsfrei\newline
+$N_2:$	\tabto{2cm} ist nicht tot\newline
+		\tabto{2cm} ist nicht verklemmungsfrei\newline
+$N_3:$	\tabto{2cm} ist lebendig\newline
+		\tabto{2cm} ist nicht verklemmungsfrei\newline
+$N_4:$	\tabto{2cm} ist lebendig\newline
+		\tabto{2cm} ist nicht verklemmungsfrei\newline
+$N_5:$	\tabto{2cm} ist tot\newline
+		\tabto{2cm} ist nicht verklemmungsfrei\newline
+
+\subsection*{Aufgabe 2}
+Es gibt keine lebendige Markierung
+
+\subsection*{Aufgabe 4}
+$r_1(r_2 e_2 L_2)^\omega$\newline
+schwach fair, da $e_1$ nicht fair behandelt wird\newline
+$e_2$ ist zwar unendlich oft aktiviert aber auch unendlich oft deaktiviert.\newline
+stark fair:\newline
+$r_1$ und $l_1$ sind nie aktiviert ($\Rightarrow$ können sich nicht beschweren, tun nichts zur Sache)\newline
+S-Invariante $\Rightarrow$ $r_1$ leer $l_1$ immer leer\newline
+$r_2 e_2 l_2$: $e_1$ wird nicht stark fair behandelt.,
+
 \end{document}
