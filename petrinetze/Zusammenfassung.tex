@@ -355,7 +355,8 @@ $y_2=\begin{pmatrix}
 $y_3=\begin{pmatrix}
 	c_2 + nc_2 + req_2\cr
 \end{pmatrix}$\newline
-Es genügt zu zeigen, dass, wenn $M(c_1)=1$ $M(c_2)=0$ darum wähle $y_1$:
+Es genügt zu zeigen, dass, wenn $M(c_1)=1$ $M(c_2)=0$\newline
+darum wähle $y_1$:\newline
 Effekt von $e_1$: $+1, 0, -1, 0 = 0$ symmetrisch zu $e_2$\newline
 Effekt von $l_1$: $-1, 0, 0, +1 = 0$ symmetrisch zu $l_2$\newline
 Effekt von $g_1$: $0, 0, -1, +1 = 0$ symmetrisch zu $g_2$\newline
@@ -367,7 +368,23 @@ Selbige Rechnung für $y_2$ und $y_3$ durchführen\newline
 $\Rightarrow$ Das Netz ist damit sicher.
 
 \subsubsection*{c)}
+Alle $r_1$\newline
+Annahme:				\tabto{2.5cm}$v r_1 w$ $e_1 \notin w$\newline
+Nach $r_1$:				\tabto{2.5cm}$M(req)=1$ wegen $y_2 \Rightarrow M(c_1)=M(nc_1)=0$\newline
+Fälle:	\tabto{1.5cm}i)	\tabto{2.5cm}$req_1 + nc_2 + tok_1$: $e_1$ darf nicht schalten\newline
+						\tabto{2.5cm}$r_2 \Rightarrow$ ii) $r_2$ schaltet wegen Maximalität\newline
+		\tabto{1.5cm}ii)\tabto{2.5cm}$req_1 + req_2 + tok_1$: nur $e_1$ aktiv\newline
+						\tabto{2.5cm}(wegen Annahme Maximailtät müsste schalten $\lightning$)\newline
+		\tabto{1.5cm}iii)\tabto{2.5cm}$req_1 + nc_2 + tok_2$: $r_2$ aktiv $\Rightarrow$ iv) $g_2$ aktiv $\Rightarrow$ i)\newline
+		\tabto{1.5cm}iv)\tabto{2.5cm}$req_1 + req_2 + tok_2$: $e_2$ aktiv $\Rightarrow$ v)\newline
+		\tabto{1.5cm}v)\tabto{2.5cm}$req_1 + c_2$: $l_2$ aktiv $\Rightarrow$ i)\newline
+$\Rightarrow$ keine Maximale\newline
+stark fair $\Rightarrow$ ist schwach fair $\Rightarrow$ ist maximal
 
 \subsection*{Aufgabe 2}
+$M_N(s_0)=0$ nach $t_1$ tot\newline
+$M_N(s_0)=1$ $(t_1 t_3 t_2 t_4)^\omega$ lebendig\newline
+$M_N(s_0)>1$ $(t_1 t_3 t_2 t_3) \rightarrow tot$\newline
+
 
 \end{document}
