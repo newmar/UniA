@@ -47,6 +47,9 @@
 \def\TCop{\textsuperscript{\textcopyright}}
 \def\TTra{\textsuperscript{\texttrademark}}
 
+\def\colCOL#1{\multicolumn{1}{>{\columncolor{green!30}}c}{#1}}
+\def\colCell#1#2{\multicolumn{1}{>{\columncolor{#1}}c}{#2}} 
+
 
 \title{Zusammenfassung Petrinetze}
 \author{B. Sc. Markus Neuerburg}
@@ -323,5 +326,48 @@ stark fair:\newline
 $r_1$ und $l_1$ sind nie aktiviert ($\Rightarrow$ können sich nicht beschweren, tun nichts zur Sache)\newline
 S-Invariante $\Rightarrow$ $r_1$ leer $l_1$ immer leer\newline
 $r_2 e_2 l_2$: $e_1$ wird nicht stark fair behandelt.,
+
+\newpage
+
+\section{Übung 5}
+\subsection*{Aufgabe 1}
+\subsubsection*{a)}
+Suchen der S-Invarianten:\newline
+Inzidenzmatrix:\newline
+$\bordermatrix{ %
+		&e_1&e_2&r_1&r_2&l_1&l_2&g_1&g_2\cr
+req_1	& -1&  0& +1&  0&  0&  0&  0&  0\cr
+req_2	&  0& -1&  0& +1&  0&  0&  0&  0\cr
+c_1		& +1&  0&  0&  0& -1&  0&  0&  0\cr
+c_2		&  0& +1&  0&  0&  0& -1&  0&  0\cr
+tok_1	& -1&  0&  0&  0&  0& +1& -1& +1\cr
+tok_2	&  0& -1&  0&  0& +1&  0& +1& -1\cr
+nc_1	&  0&  0& -1&  0& +1&  0&  0&  0\cr
+nc_2	&  0&  0&  0& -1&  0& +1&  0&  0\cr
+}$\vspace*{1cm}\newline
+Auf Null kommen:\newline
+$y_1=\begin{pmatrix}
+	c_1 + c_2 + tok_1 + tok_2\cr
+\end{pmatrix}$\newline
+$y_2=\begin{pmatrix}
+	c_1 + nc_1 + req_1\cr
+\end{pmatrix}$\newline
+$y_3=\begin{pmatrix}
+	c_2 + nc_2 + req_2\cr
+\end{pmatrix}$\newline
+Es genügt zu zeigen, dass, wenn $M(c_1)=1$ $M(c_2)=0$ darum wähle $y_1$:
+Effekt von $e_1$: $+1, 0, -1, 0 = 0$ symmetrisch zu $e_2$\newline
+Effekt von $l_1$: $-1, 0, 0, +1 = 0$ symmetrisch zu $l_2$\newline
+Effekt von $g_1$: $0, 0, -1, +1 = 0$ symmetrisch zu $g_2$\newline
+
+\subsubsection*{b)}
+Das Netz gilt als sicher, wenn gilt: $y^TM_N = 1$\newline
+$\Rightarrow \begin{pmatrix}0 & 0 & 1 & 1 & 1 & 1 & 0 & 0\end{pmatrix}\begin{pmatrix}0\cr 0\cr 0\cr 0\cr 1\cr 0\cr 1\cr 1\cr\end{pmatrix}=0+0+0+0+1+0+0+0 = 1$\newline
+Selbige Rechnung für $y_2$ und $y_3$ durchführen\newline
+$\Rightarrow$ Das Netz ist damit sicher.
+
+\subsubsection*{c)}
+
+\subsection*{Aufgabe 2}
 
 \end{document}
