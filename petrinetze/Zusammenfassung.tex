@@ -419,7 +419,6 @@ $M_N(s_0)>1$ $(t_1 t_3 t_2 t_3) \rightarrow tot$\newline
 
 \section{Übung 6}
 \subsection*{Aufgabe 1}
-
 Markierungsaufbau: r r1 r2 a1 a2 a\newline
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -451,5 +450,126 @@ Markierungsaufbau: r r1 r2 a1 a2 a\newline
 \end{tikzpicture}
 \end{figure}
 
+\subsection*{Aufgabe 2}
+\begin{figure}[H]
+\begin{tikzpicture}[node distance=1.3cm, >=stealth', bend angle=45, auto]
+  \tikzstyle{place}=[circle, thick, draw=blue!75, fill=blue!20, minimum size=6mm]
+  \tikzstyle{red place}=[place, draw=red!75, fill=red!20]
+  \tikzstyle{transition}=[rectangle, thick, draw=black!75, fill=black!20, minimum size=4mm]
+  \tikzstyle{every label}=[red]
+  
+	\node 	[place, tokens=3]	at	(0,0)		(z)		{};
+	\node	[transition]		at	(-4,-2)		(t2)	{$t_2$}
+		edge [pre]	(z);
+	\node 	[place]				at	(-6,-2)		(s)		{}
+		edge [pre]	(t2);
+	\node	[transition]		at	(-8,-4)		(t3)	{$t_3$}
+		edge [pre]	(s)
+		edge [post, bend left]	(z);
+	\node 	[place, tokens=2]	at	(-6,-6)		(spass)	{}
+		edge [pre]	(t3);
+	\node	[transition]		at	(-4,-6)		(t1)	{$t_1$}
+		edge [pre]	(spass);
+	\node 	[place]				at	(-0,-6)		(wschr)	{}
+		edge [pre]	(t1);
+	\node	[transition]		at	(2, -4)		(t2')	{$t_2'$}
+		edge [pre]	(wschr);
+	\node 	[place]				at	(2,-2)		(s1)	{}
+		edge [pre]	(t2');
+	\node	[transition]		at	(-0, -2)	(t2'')	{$t_2''$}
+		edge [pre]	(s1);
+	\node 	[place]				at	(-2,-2)		(s2)	{}
+		edge [pre]	(t2'')
+		edge [post]	(t2);
+	\node	[place, tokens=1]	at	(-2,-4)		(s3)	{}
+		edge [pre]	(t2)
+		edge [post]	(t2'');
+\end{tikzpicture}
+\end{figure}
+S-Invarianten:\newline
+wenn bei $s$ eine Marke liegt, liest und schreibt kein anderer Prozess.\newline
+$z+l+3s+2s_2+s1=3$\newline
+ursprünglich $z+l+3s=3$\newline
+wenn auf $s$ mindestens eine Marke liegt $\Rightarrow 3 \Rightarrow$ alle anderen $0$\newline
+Beweis:\newline
+$\bordermatrix{
+		&	t_2'	&	t_2''	&	t_2	&	t_3	&	t_5	&	t_6	\cr
+3s		&	0		&	0		&	3	&	-3	&	0	&	0	\cr
+2s_2	&	0		&	2		&	-2	&	0	&	0	&	0	\cr
+s_1		&	1		&	-1		&	0	&	0	&	0	&	0	\cr
+z		&	-1		&	-1		&	-1	&	3	&	-1	&	+1	\cr
+l		&	0		&	0		&	0	&	0	&	-1	&	+1\cr
+}$\newline
+Die Summen unter allen Transitionen ergibt $0$
+\newpage
+\subsection*{Aufgabe 3}
+S-Invarianten:\newline
+$y_1=s_0+s_1=n$\newline
+$y_2=s_5+s_6=1$\newline
+$y_3=s_2+s_3+s_4=1$\newline
+Effekte auf\newline
+$y1$:	\tabto{1.5cm}$t_3$:\tabto{2cm}$-1+1=0$\newline
+		\tabto{1.5cm}$t_4$:\tabto{2cm}$+1-1=0$\newline
+$y2$:	\tabto{1.5cm}$t_1$:\tabto{2cm}$+1-1=0$\newline
+		\tabto{1.5cm}$t_2$:\tabto{2cm}$-1+1=0$\newline
+$y3$:	\tabto{1.5cm}$t_1$:\tabto{2cm}$-1+1+0=0$\newline
+		\tabto{1.5cm}$t_2$:\tabto{2cm}$0+1-1=0$\newline
+		\tabto{1.5cm}$t_3$:\tabto{2cm}$0-1+1=0$\newline
+		\tabto{1.5cm}$t_4$:\tabto{2cm}$+1-1+0=0$\newline
 
+\subsection{Aufgabe 4}
+\subsubsection*{a)}
+0-lebendig = tot\newline
+4-lebendig $\Rightarrow$ 3-lebendig $\Rightarrow$ 2-lebendig $\Rightarrow$ 1-lebendig\newline
+$\neg 3$-lebendig $\Rightarrow$ $\neg 4$-legendig\newline
+$\neg 3$-lebendig $\Rightarrow$ Schaltfolgen beinhalten endlich viele t's\newline
+$\Rightarrow$ irgendwann kann t nicht mehr schalten $\lightning 4$-lebendig $\Rightarrow$ $\neg 4$-lebendig\newline
+3-lebendig $\not\Rightarrow$ 4-lebendig\newline
+\begin{tikzpicture}[node distance=1.3cm, >=stealth', bend angle=45, auto]
+  \tikzstyle{place}=[circle, thick, draw=blue!75, fill=blue!20, minimum size=6mm]
+  \tikzstyle{red place}=[place, draw=red!75, fill=red!20]
+  \tikzstyle{transition}=[rectangle, thick, draw=black!75, fill=black!20, minimum size=4mm]
+  \tikzstyle{every label}=[red]
+	\node[place, tokens=1] 	at(0,0) (s1){};
+	\node[transition]		at(0,-2)(t1){t}
+		edge[pre, bend left] (s1)
+		edge[post, bend right](s1);
+	\node[transition]		at(2,0)(t2){v}
+		edge[pre] (s1);
+\end{tikzpicture} ist zwar 3-lebendig jedoch nicht aus jeder erreichbaren Markierung ist t schaltbar, da v ein Verbraucher ist $\Rightarrow$ Marke weg!\newline
+1-lebendig $\not\Rightarrow$ 2-lebendig\newline
+\begin{tikzpicture}[node distance=1.3cm, >=stealth', bend angle=45, auto]
+  \tikzstyle{place}=[circle, thick, draw=blue!75, fill=blue!20, minimum size=6mm]
+  \tikzstyle{red place}=[place, draw=red!75, fill=red!20]
+  \tikzstyle{transition}=[rectangle, thick, draw=black!75, fill=black!20, minimum size=4mm]
+	\node[place, tokens=1]	at(0,0) (s1) 	{};
+	\node[transition]		at(2,0)	(t)		{t}
+		edge[pre](s1);
+\end{tikzpicture} 1x schalten ja; jedoch $n=2 \lightning$\newline
+2-lebendig n-mal schalten ja jedoch nicht unendlich oft\newline
+\begin{tikzpicture}[node distance=1.3cm, >=stealth', bend angle=45, auto]
+  \tikzstyle{place}=[circle, thick, draw=blue!75, fill=blue!20, minimum size=6mm]
+  \tikzstyle{red place}=[place, draw=red!75, fill=red!20]
+  \tikzstyle{transition}=[rectangle, thick, draw=black!75, fill=black!20, minimum size=4mm]
+	\node[place, tokens=1]	at(0,0)			(s1)	{};
+	\node[transition]		at(0,-2)		(t1)	{$t_1$}
+		edge[pre] (s1);
+	\node[place]			at(0,-4)		(s2)	{}
+		edge[pre] (t1);
+	\node[transition]		at(2,0)			(t2)	{$t_2$}
+		edge[pre, bend left]	(s1)
+		edge[post, bend right]	(s1);
+	\node[place]			at(2,-2)		(s3)	{}
+		edge[pre] (t2);
+	\node[transition]		at(2,-4)			(t3)	{$t_3$}
+		edge[pre] (s3)
+		edge[pre, bend left] (s2)
+		edge[post, bend right] (s2);
+\end{tikzpicture} 42 mal aufbauen; danach 42 mal abbauen,
+\subsubsection*{b)}
+ist 0-lebendig dann auch $N'$ 0-lebendig? ja\newline
+1-lebendig: ja\newline
+2-lebendig: ja\newline
+3-lebendig: ja\newline
+4-lebendig: nein\newline
 \end{document}
