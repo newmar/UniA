@@ -417,5 +417,39 @@ $M_N(s_0)=0$ nach $t_1$ tot\newline
 $M_N(s_0)=1$ $(t_1 t_3 t_2 t_4)^\omega$ lebendig\newline
 $M_N(s_0)>1$ $(t_1 t_3 t_2 t_3) \rightarrow tot$\newline
 
+\section{Übung 6}
+\subsection*{Aufgabe 1}
+
+Markierungsaufbau: r r1 r2 a1 a2 a\newline
+\begin{figure}[H]
+\begin{tikzpicture}
+	\node at (0,0)		(m1) {0,0,0,0,0,0};
+	\node at (0,-2) 	(m2) {1,0,0,0,0,0}
+		edge [pre] node [right] {r+} (m1);
+	\node at (-2, -4)	(m3) {1,1,0,0,0,0}
+		edge [pre] node [left] {r1+} (m2);
+	\node at (+2, -4)	(m4) {1,0,1,0,0,0}
+		edge [pre] node [right] {r2+} (m2);
+	\node at (-2, -6)	(m5) {1,1,0,1,0,0}
+		edge [pre] node [left] {a1+} (m3);
+	\node at (+2, -6)	(m6) {1,0,1,0,1,0}
+		edge [pre] node [right] {a2+} (m4);
+	\node at (-2, -8)	(m7) {1,0,0,1,0,0}
+		edge [pre] node [left] {r1-} (m5);
+	\node at (+2, -8)	(m8) {1,0,0,0,1,0}
+		edge [pre] node [right] {r2-} (m6);
+	\node at (-2, -10)	(m9) {1,0,0,0,0,0}
+		edge [pre] node [left] {a1-} (m7);
+	\node at (+2, -10)	(m10) {1,0,0,0,0,0}
+		edge [pre] node [right] {a2-} (m8);
+	\node at (0, -12)	(m11) {1,0,0,0,0,1}
+		edge [pre] node [left] {a+} (m9)
+		edge [pre] node [right]  {a+} (m10);
+	\node at (0, -14)	(m12) {0,0,0,0,0,1}
+		edge [pre] node [right] {r-} (m11)
+		edge [post, out=180, in=180] node [left] {a-} (m1);
+\end{tikzpicture}
+\end{figure}
+
 
 \end{document}
