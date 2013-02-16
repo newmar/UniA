@@ -109,8 +109,39 @@ $M$ heißt lebendig, wenn alle $t$ unter $M$ lebendig sind.\newline
 $t$ heißt lebendig, falls $t$ lebendig unter $M_N$.\newline
 $N$ heißt lebendig, falls alle Transitionen lebendig sind.
 
+Eine Transition $t$ eines Netzes $N$ ist
+\begin{itemize}
+	\item 0-lebendig, wenn sie niemals schalten kann.
+	\item 1-lebendig, wenn sie mindestens einmal schalten kann.
+	\item 2-lebendig, wenn es für jedes $n \in N$ eine Schaltfolge gibt, in der $t$ mindestens n-mal schaltet.
+	\item 3-lebendig, wenn es eine unendliche Schaltfolge gibt, in der $t$ unendlich oft schaltet.
+	\item 4-lebendig, wenn es von jeder erreichbaren Markierung aus eine Schaltfolge mit $t$ gibt.
+\end{itemize}
+
 \subsection{Identifikation von S-Invarianten}
-S-Invarianten Sind nützlich um Situationen zu untersuchen bei denen es zu Konflikten kommen kann. z.B. reader writer Prozess. Hier ist zu beachten, dass lesen und schreiben nicht gleichzeitig geschehen dürfen. Dass dies sichergestellt werden kann dürfen zu keinem Zeitpunkt die Marken auf der Stelle für die Zugriffsrechte ausrechen, dass nach dem Starten eines Schreibprozess sofort der Leseprozess geschalten werden kann. Das kann nur der Fall sein, wenn jede Marke auch wirklich verbraucht wird und immer nur soviele Marken auf die Stellen gelegt werden wie auch verbraucht werden. Gleiches gilt auch für den Leseprozess. Hier dürfen jedoch mehrere Leseprozesse hintereinander gestartet werden. Auch hier gilt: Alle Leseprozesse müssen erst beendet werden, dass ein Schreibprozess gestartet werden darf.
+S-Invarianten Sind nützlich um Situationen zu untersuchen bei denen es zu Konflikten kommen kann. z.B. reader writer Prozess. Hier ist zu beachten, dass lesen und schreiben nicht gleichzeitig geschehen dürfen. Dass dies sichergestellt werden kann dürfen zu keinem Zeitpunkt die Marken auf der Stelle für die Zugriffsrechte ausrechen, dass nach dem Starten eines Schreibprozess sofort der Leseprozess geschalten werden kann. Das kann nur der Fall sein, wenn jede Marke auch wirklich verbraucht wird und immer nur soviele Marken auf die Stellen gelegt werden wie auch verbraucht werden. Gleiches gilt auch für den Leseprozess. Hier dürfen jedoch mehrere Leseprozesse hintereinander gestartet werden. Auch hier gilt: Alle Leseprozesse müssen erst beendet werden, dass ein Schreibprozess gestartet werden darf.\newline
+
+S-Invarianten:
+\begin{itemize}
+\item Inzidenzmatrix aufstellen $s1..sn, t1...tm$
+\item gleiche Stellen in den s-Zeilen finden die Null ergeben $\rightarrow$ $y1...yn$
+\end{itemize}
+
+\subsubsection*{Satz 3.4}
+Ist keine Transition in $N$ tot (oder $N$ gar lebendig) und $y$ ein ganzzahliger Vektor mit $y^{T} * M = y^{T} * M_{N}$ für alle $M \in [M_{N}>$, dann ist $y$ eine S-Invariante.\newline
+
+\subsection*{Identifikation von T-Invarianten}
+- Spalten der Inzidenzmatrix
+
+\section*{Definition 3.2 (S-Invarianten überdeckt)}
+$N$ heisst von S-Invarianten überdeckt, wenn $N$ eine positive S-Invariante besitzt. (positiv: $\forall y(s) > 0$)
+
+\section*{Satz 3.5 (beschränkt, sicher)}
+Ist $s \in S$ und $y$ eine nicht-negative S-Invariante mit $y(s) > 0$, dann ist $s$ - auch bei geänderter Anfangsmarkierung $M_{0}$ - beschränkt. Ist $y^{T} * M_{0} = 1$, so ist s sicher unter $M_{0}$.
+
+\subsubsection*{Satz 3.10 (T-Invarianten überdeckt)}
+wenn $N$ bei einer Anfangsmarkierung M lebendig und beschränkt ist, dann ist N von T-Invarianten überdekt.
+
 
 \chapter{Übungen}
 
