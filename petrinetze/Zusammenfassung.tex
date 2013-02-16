@@ -573,4 +573,85 @@ ist 0-lebendig dann auch $N'$ 0-lebendig? ja\newline
 2-lebendig: ja\newline
 3-lebendig: ja\newline
 4-lebendig: nein\newline
+
+\newpage
+
+\section{Übung 7}
+\subsection*{Aufgabe 1}
+\begin{figure}[H]
+	\begin{tikzpicture}[node distance=1.3cm, >=stealth', bend angle=45, auto]
+	  \tikzstyle{place}=[circle, thick, draw=blue!75, fill=blue!20, minimum size=6mm]
+	  \tikzstyle{red place}=[place, draw=red!75, fill=red!20]
+	  \tikzstyle{transition}=[rectangle, thick, draw=black!75, fill=black!20, minimum size=4mm]
+	  
+		\node[place, tokens=1, label={$Pc_6$}]		at(0,0)		(pc6)	{};
+		\node[transition]							at(0,-2)	(x4)	{$x_4$}
+			edge[post]	(pc6);
+		\node[place, tokens=1, label={right:$Pc_1$}]at (0,-4)	(pc1)	{}
+			edge[post]	(x4);
+		\node[transition]							at(-2,-6)	(x1)	{$x_1$}
+			edge[pre]	(pc1);
+		\node[transition]							at(0,-6)	(x2)	{$x_2$}
+			edge[pre]	(pc1);
+		\node[transition]							at(2,-6)	(x3)	{$x_3$}
+			edge[pre]	(pc1);
+		\node[place, label={right:$Pc_2$}]			at(0,-8)	(pc2)	{}
+			edge[pre]	(x1)
+			edge[pre]	(x2)
+			edge[pre]	(x3);
+		\node[transition]							at(-4,-10)	(x11)	{$x_1$}
+			edge[pre]	(pc2);
+		\node[transition]							at(-2,-10)	(x12)	{$x_2$}
+			edge[pre]	(pc2);
+		\node[transition]							at(2,-10)	(x13)	{$x_3$}
+			edge[pre]	(pc2);
+		\node[transition]							at(4,-10)	(x14)	{$x_3$}
+			edge[pre]	(pc2);
+		\node[place, label={left:$Pc_3$}]			at(-3, -12)	(pc3)	{}
+			edge[pre]	(x11)
+			edge[pre]	(x12);
+		\node[place, label={left:$Pc_4$}]			at(3, -12)	(pc4)	{}
+			edge[pre]	(x13)
+			edge[pre]	(x14);
+		\node[transition]							at(-5, -14)	(t1)	{}
+			edge[pre]	(pc3);
+		\node[transition]							at(-3, -14)	(t2)	{}
+			edge[pre]	(pc3);
+		\node[transition]							at(-1, -14)	(t3)	{}
+			edge[pre]	(pc3);
+		\node[transition]							at(1, -14)	(t4)	{}
+			edge[pre]	(pc4);
+		\node[transition]							at(3, -14)	(t5)	{}
+			edge[pre]	(pc4);
+		\node[transition]							at(5, -14)	(t6)	{}
+			edge[pre]	(pc4);
+		\node[transition]							at(7, -14)	(t7)	{}
+			edge[pre]	(pc4);
+		\node[place, label={right:$x_1$}]			at(-4,-16)	(sx1)	{}
+			edge[pre]	(t1)
+			edge[post]	(t4);
+		\node[place, label={right:$x_2$}]			at(-2,-16)	(sx2)	{}
+			edge[pre]	(t1)
+			edge[post]	(t5);
+		\node[place, label={right:$x_3$}]			at(2,-16)	(sx3)	{}
+			edge[pre]	(t2)
+			edge[post]	(t6);
+		\node[place, label={right:$x_4$}]			at(4,-16)	(sx4)	{}
+			edge[pre]	(t3)
+			edge[pre, out=60, in=-180]	(t7)
+			edge[post, out=0, in =-100]	(t7);
+		\node[place, label={$Pc_5$}]				at(0,-18)	(pc5)	{}
+			edge[pre]	(t1)
+			edge[pre]	(t2)
+			edge[pre]	(t3)
+			edge[pre]	(t4)
+			edge[pre]	(t5)
+			edge[pre]	(t6)
+			edge[pre]	(t7);
+	\end{tikzpicture}
+\end{figure}OH MANN!!!
+
+\subsection*{Aufgabe 2}
+\subsubsection*{a)}
+Satz 4.5 Transitionen können sehen ob eine andere geschalten hat wenn dazwischen eine Stelle ist die eine Marke beinhaltet.\newline
 \end{document}
