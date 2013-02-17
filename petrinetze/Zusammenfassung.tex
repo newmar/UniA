@@ -144,10 +144,14 @@ Ist $s \in S$ und $y$ eine nicht-negative S-Invariante mit $y(s) > 0$, dann ist 
 wenn $N$ bei einer Anfangsmarkierung M lebendig und beschränkt ist, dann ist N von T-Invarianten überdekt.
 
 \section*{Siphon}
-$R \subset S$ ist ein Siphon (deadlock, Tube), falls $^\bullet R \subset R^\bullet$
+$R \subseteq S$ ist ein Siphon (deadlock, Tube), falls $^\bullet R \subseteq R^\bullet$
 
 \section*{Falle}
-$R \subset S$ ist eine Falle, falls $R^\bullet \subset ^\bullet R$
+$R \subseteq S$ ist eine Falle, falls $R^\bullet \subseteq ^\bullet R$
+
+\section*{Satz von Commoner}
+Sei N ein EFC-Netz ohne isolierte Stellen.\newline
+N ist lebendig $\Leftrightarrow$ Jeder nichtleere Siphon enthält eine markierte Falle.
 
 \chapter{Lemmata}
 \section{Dicksons Lemma (5.3)}
@@ -162,14 +166,14 @@ N habe keine isolierten Stellen, und $R \not = \emptyset$ sei ein Siphon. Dann i
 \section{Lemma 6.9}
 \begin{enumerate}
 	\item Die Vereinigung von Siphons (Fallen) ist ein(e) Siphon (Falle).
-	\item Jedes $R \subset S$ enthält eine größte (d.h. eindeutige maximale) Falle
+	\item Jedes $R \subseteq S$ enthält eine größte (d.h. eindeutige maximale) Falle
 \end{enumerate}
 
 \section{Lemma 6.10}
 \ac{<p} ist wohlgegründet, d.h. es gibt keine unendliche echt absteigende Kette $(M_1 >_p M_2 >_p M_3 ...)$
 
 \section{Lemma 6.11}
-Sei N ein EFC-Netz (extended free choice), $R \subset S$ und Q die maximale (d.h. größte) Falle in R. Dann gibt es eine Ordnung P von $R \ Q$, so dass für alle Markierungen M, unter denen Q unmarkiert ist, gilt:\newline
+Sei N ein EFC-Netz (extended free choice), $R \subseteq S$ und Q die maximale (d.h. größte) Falle in R. Dann gibt es eine Ordnung P von $R \ Q$, so dass für alle Markierungen M, unter denen Q unmarkiert ist, gilt:\newline
 $[(\exists t \in R^\bullet : M\left[t\right>) \vee (R$ ist Siphon $\wedge \exists t \in R^\bullet$ : t ist nicht tot unter M)] $\Rightarrow [ \exists M' \in \left[M\right> : M' $\ac{<p}$M]$ und Q ist unmarkiert unter M'.
 
 \chapter{Übungen}
