@@ -64,9 +64,11 @@
 \newpage
 \chapter*{Abkürzungsverzeichnis}
 \begin{acronym}[HBCI]
-	\acro{aa}[$\mathrm{T^*}$]{akzeptiertes Alphabet}
+	\acro{t*}[$\mathrm{T^*}$]{akzeptiertes Alphabet}
+	\acro{a*}[$\mathrm{A^*}$]{akzeptierte Buchstaben}
 	\acro{es}[$\mathrm{\lambda}$]{leere Schaltfolge}
 	\acro{<p}[$<_p$]{lexikographische Ordnung}
+	\acro{mu}[$\mu$]{Multimenge}
 \end{acronym}
 
 \chapter{Grundbegriffe}
@@ -82,6 +84,7 @@
 	Sprich: Nachbereich von x ist y mit der Eigenschaft: Kannte von x nach y ist Element aller Flussrelationen (Pfeile)
 	\item $M:S\mapsto \mathbb{N}$			\tabto{4cm} Markierung\newline
 	Eine Markierung M ist eine Menge von Stellen abgebildet auf $\mathbb{N}$
+	\item $\left[ M_N \right>$ ist die Menge der in Netz N erreichbaren Markierungen (Erreichbarkeitsmenge)
 \end{itemize}
 
 \chapter{Definitionen}
@@ -89,7 +92,7 @@
 $t \in T$ ist aktiviert unter Markierung $M$, $M\left[t\right>$, falls $\forall s \in S:W(s,t) \leq M(s)$\newline
 	Sprich: Transition $t$ ist aktiviert unter Markierung $M$, falls für alle Stellen aus der Menge $S$ gilt, dass das Kanntengewicht der Kannte von s nach t kleiner oder gleich Anzahl der Marken auf Stelle $s$ ($M(s)$) ist.
 \section{Definition 2.3 (Schaltfolge)}
-Sei $w \in$ \ac{aa} : $M\left[w\right>$ bzw. $M\left[w\right>M'$ falls:
+Sei $w \in$ \ac{t*} : $M\left[w\right>$ bzw. $M\left[w\right>M'$ falls:
 \begin{itemize}
 	\item $w =$ \ac{es} (und $M=M'$)
 	\item $w = w't$ mit $t \in T$, $M\left[w'\right>M''\left[t'\right>$ (und $M''\left[t\right>M'$)
