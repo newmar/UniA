@@ -30,7 +30,6 @@ SELECT datum, wert1, wert1-LAG(wert1, 1)\newline
 CREATE ROLE R1\newline
 CREATE USER leser NOT IDENTIFIED\newline
 GRANT select(datum, wert) ON R1 TO leser\newline
-
 \section*{Aufgabe 2: Trigger, 8 Punkte(2+6)}
 \subsection*{a)}
 CREATE TRIGGER OR REPLACE triger1\newline
@@ -47,7 +46,6 @@ Begin\newline
 \hspace*{5mm}UPDATE archive SET kommentar = 'Gehalt identisch zum' $||$ :old.datum\newline
 \hspace*{5mm}WHERE :old.pers\_id = :new.pers\_id AND\newline
 \hspace*{5mm}datum = :new.datum\newline
-
 \section*{Aufgabe 3 Objekte in Oracle, 9 Punkte (3+2+2+2)}
 \subsection*{a)}
 CREATE OR REPLACE type\_zimmer\newline
@@ -69,7 +67,6 @@ SELECT zimmer\_tab.nummer \newline
 \subsection*{d)}
 SELECT name, SUM(zimmer\_tab.bettenanzahl) s FROM hotel h,\newline
 \hspace*{5mm}TABLE(h.zimmer) z ORDER BY s desc;
-
 \section*{Aufgabe 4: Rekursion in Orakle, 6 Punkte (3+1+2)}
 \subsection*{a)}
 SELEKT parent, child FROM tree\newline
