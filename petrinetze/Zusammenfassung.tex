@@ -156,6 +156,25 @@ $R \subseteq S$ ist eine Falle, falls $R^\bullet \subseteq ^\bullet R$
 Sei N ein EFC-Netz ohne isolierte Stellen.\newline
 N ist lebendig $\Leftrightarrow$ Jeder nichtleere Siphon enthält eine markierte Falle.
 
+\chapter{Fairness}
+\section{Schwache Fairness}
+Eine Schaltfolge ist schwach fair bezüglich einer Transition $t$, wenn sie
+\begin{itemize}
+	\item endlich ist und in einer Markierung endet, die t nicht aktiviert
+	\item unendlich ist und t unendlich oft deaktiviert ist
+	\item t unendlich oft enthält
+\end{itemize}
+
+\section{Strakte Fairness}
+Eine Schaltfolge ist stark fair bezüglich einer Transition t, wenn sie
+\begin{itemize}
+	\item endlich ist un in einer Markierung endet, die t nicht aktiviert,
+	\item unendlich ist und t nur endlich oft aktiviert ist
+	\item t unendlich oft enthält
+\end{itemize}
+
+Eine Schaltfolge ist schwach fair bzw. stark fair, wenn sie für jede Transition des Netzes schwach fair bzw. stark fair ist.
+
 \chapter{Graphen}
 \section{Erreichbarkeitsgraph}
 \subsection{Definition Erreichbarkeit}
